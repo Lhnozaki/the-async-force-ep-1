@@ -7,19 +7,19 @@ let filmList = document.querySelector("#filmList");
 
 // Create XHR for Vader
 const person4XHR = new XMLHttpRequest();
-person4XHR.addEventListener("load", reqName1);
+person4XHR.addEventListener("load", requestCharacterName);
 person4XHR.open("GET", "https://swapi.co/api/people/4/", true);
 person4XHR.send();
 
 // Pull name from API and append to person4Name div
-function reqName1() {
+function requestCharacterName() {
   if (this.status === 200) {
     const name = JSON.parse(this.responseText).name;
     person4Name.innerHTML = `<div>Name: ${name}</div>`;
 
     const home = JSON.parse(this.responseText).homeworld;
     const person4XHR2 = new XMLHttpRequest();
-    person4XHR2.addEventListener("load", reqHome1);
+    person4XHR2.addEventListener("load", requestCharacterHome);
     person4XHR2.open("GET", home, true);
     person4XHR2.send();
   } else {
@@ -28,7 +28,7 @@ function reqName1() {
 }
 
 // Pull homeworld from API and append to person4HomeWorld div
-function reqHome1() {
+function requestCharacterHome() {
   if (this.status === 200) {
     const home = JSON.parse(this.responseText).name;
 
@@ -40,12 +40,12 @@ function reqHome1() {
 
 // Create XHR for person 14
 const person14XHR = new XMLHttpRequest();
-person14XHR.addEventListener("load", reqName2);
+person14XHR.addEventListener("load", requestCharacterName2);
 person14XHR.open("GET", "https://swapi.co/api/people/14/", true);
 person14XHR.send();
 
 // Pull name from API and append to HTML
-function reqName2() {
+function requestCharacterName2() {
   if (this.status === 200) {
     const name = JSON.parse(this.responseText).name;
     person14Name.innerHTML = `<div>Name: ${name}</div>`;
