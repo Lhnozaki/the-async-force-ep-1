@@ -1,3 +1,5 @@
+"use strict";
+
 // HTML tag variables
 let person4Name = document.querySelector("#person4Name");
 let person4HomeWorld = document.querySelector("#person4HomeWorld");
@@ -38,14 +40,14 @@ function requestCharacterHome() {
   }
 }
 
-// Create XHR for person 14
+// Create XHR for Han Solo
 const person14XHR = new XMLHttpRequest();
-person14XHR.addEventListener("load", requestCharacterName2);
+person14XHR.addEventListener("load", requestCharacterNameAgain);
 person14XHR.open("GET", "https://swapi.co/api/people/14/", true);
 person14XHR.send();
 
 // Pull name from API and append to HTML
-function requestCharacterName2() {
+function requestCharacterNameAgain() {
   if (this.status === 200) {
     const name = JSON.parse(this.responseText).name;
     person14Name.innerHTML = `<div>Name: ${name}</div>`;
